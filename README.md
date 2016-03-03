@@ -1,2 +1,2 @@
 # ENGR1-Robot-Project
-Solidworks and Software for out ENGR1 Robot
+Solidworks and Software for our ENGR1 Robot
