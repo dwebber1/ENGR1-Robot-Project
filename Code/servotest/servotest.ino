@@ -36,6 +36,7 @@ digitalWrite(red,1);
 digitalWrite(green,1);
 delay(1000);
 digitalWrite(red,0);
+digitalWrite(green,0);
 delay(1000);
 digitalWrite(red,1);
 digitalWrite(green,1);
