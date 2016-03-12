@@ -1,9 +1,9 @@
 #include <Servo.h> 
-int green = 2;
-int red = 3;
-int left = 11;
+int green = 3;
+int red = 2;
+int left = 6;
 int claw =9;
-int right = 6;
+int right = 11;
 int flex = A0;
 int button = 12;
 int flexstore=0;
@@ -24,24 +24,31 @@ void setup()
   pinMode(red,OUTPUT);
   pinMode(green,OUTPUT);
   Serial.begin(9600);
+  rightservo.write(93);
+  leftservo.write(90);
+
   clawservo.write(90);
+  delay(1500);
 
-leftservo.write(92);
-rightservo.write(92);
 
-digitalWrite(red,1);
+
+//digitalWrite(red,1);
 digitalWrite(green,1);
 delay(1000);
 digitalWrite(red,0);
-digitalWrite(green,0);
+
 delay(1000);
-digitalWrite(red,1);
-digitalWrite(green,1);
+
+//digitalWrite(green,1);
 while (digitalRead(button))
 {}
-delay (1500);
-leftservo.write(0);
-rightservo.write(180);
+
+digitalWrite(green,0);
+digitalWrite(red,1);
+
+rightservo.write(85);
+leftservo.write(98);
+
 
   
   
@@ -51,7 +58,7 @@ rightservo.write(180);
 boolean isflexed ()
 {
     
-    return (analogRead(flex) <= 170);
+    return (analogRead(flex) <= 215);
     
   
  }
@@ -59,13 +66,13 @@ void loop()
 {
  //if (digitalRead(button,HIGH){
    // shouldmove = 1;    }
- 
+ Serial.println(analogRead(flex));
   
   if (!hascan && isflexed())
   {
-    while (garbagecount < 200)
+    while (garbagecount < 130)
     {
-      Serial.println(garbagecount);
+      //Serial.println(garbagecount);
       if (!isflexed ())
         garbagecount++;
       else
@@ -84,21 +91,28 @@ void loop()
 
 void closeclaw()
 {
-      leftservo.write(92);
-      rightservo.write(92);
+      leftservo.write(90);
+      rightservo.write(93);
+      
       delay(1000);
-      clawservo.write(12);
+      
+      clawservo.write(20);
+      
       delay(1000);
-      leftservo.write(0);
-      rightservo.write(180);
+      
+      rightservo.write(85);
+      leftservo.write(98);
+      
       hascan = true;
+      delay(2000);
 
 }
 
 void openclaw()
 {
-      leftservo.write(92);
-      rightservo.write(92);
+    
+      leftservo.write(90);
+      rightservo.write(93);
       delay(1000);
       clawservo.write(90);
       delay(1000);
