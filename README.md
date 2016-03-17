@@ -1,5 +1,6 @@
 # Engineering 1-Robot-Project
-Solidworks and Software for our ENGR1 Robot    
+Solidworks and Software for our ENGR1 Robot 
+![Image of Solidworks Drawings](https://raw.githubusercontent.com/dwebber1/ENGR1-Robot-Project/master/ScreenShots/above_view_of_can.PNG)
 <br>
 ## Overview  
 This project was created for our intro to engineering class.  
